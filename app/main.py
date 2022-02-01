@@ -5,9 +5,10 @@ from app.router.index import index_router
 from app.router.posts import posts_router
 from app.db.models import Base
 from app.db.database import engine
+from app.config import DOCS_URL, REDOC_URL
 
 
-app = FastAPI()
+app = FastAPI(docs_url=DOCS_URL, redoc_url=REDOC_URL)
 app.include_router(index_router)
 app.include_router(posts_router, prefix="/posts")
 
