@@ -2,9 +2,12 @@ import os
 
 env = os.getenv("FASTAPI_ENV")
 if env == "production":
-    DATABASE_URL = os.getenv("DATABASE_URL")
+    DATABASE_URL = os.getenv("MYAPP_PRD_DB_URL")
     DOCS_URL = None
     REDOC_URL = None
+    if os.getenv("TEST") == "TEST":
+        DATABASE_URL = os.getenv("MYAPP_DEV_DB_URL")
+
     if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
         DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql+asyncpg://", 1)
 
