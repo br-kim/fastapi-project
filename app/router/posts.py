@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, Response
 
-from app.deps import get_db
 from app.db.crud import get_post_db, write_post_db
 
 from app.schema import PostCreate, Post
+from app.deps import get_db
 
 posts_router = APIRouter()
 
@@ -16,6 +16,6 @@ async def get_post(post_num: int, db=Depends(get_db)):
     return Post.from_orm(db_post)
 
 
-@posts_router.post("")
+@posts_router.post("", status_code=201)
 async def write_post(post: PostCreate, db=Depends(get_db)):
     return await write_post_db(db, post)
