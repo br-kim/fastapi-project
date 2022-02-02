@@ -10,10 +10,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.9
+    - name: Set up Python 3.9.10
+
       uses: actions/setup-python@v2
       with:
-        python-version: 3.9
+        python-version: 3.9.10
 
     - name: Deploy to Heroku
       # You may pin to the exact commit or the version.
