@@ -5,9 +5,6 @@ if env == "production":
     DATABASE_URL = os.getenv("MYAPP_PRD_DB_URL")
     DOCS_URL = None
     REDOC_URL = None
-    if os.getenv("TEST") == "TEST":
-        DATABASE_URL = "postgresql+asyncpg://postgres:1234@localhost/sample_app_dev"
-
     if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
         DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql+asyncpg://", 1)
 
