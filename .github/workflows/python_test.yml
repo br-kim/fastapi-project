@@ -34,4 +34,4 @@ jobs:
         TEST: "TEST"
       run: |
         cd app
-        PYTHONPATH=./app pytest $(pwd)/tests -q
+        PYTHONPATH=./app pytest tests -q
